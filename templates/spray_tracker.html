@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Vineyard Spray Tracker</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Vineyard Spray Tracker</h1>
+        
+        <div class="main-content">
+            <div class="grid-container">
+                <div id="vineyard-grid"></div>
+            </div>
+            
+            <div class="calendar-container">
+                <h2>Spray Calendar</h2>
+                <div id="calendar"></div>
+                <div class="threshold-display">
+                    Threshold: <span id="threshold-value">20</span> sprays/day
+                </div>
+            </div>
+        </div>
+
+        <div class="stats-panel">
+            <h3>Daily Statistics <span id="stats-date"></span></h3>
+            
+            <div class="chart-container">
+                <div class="chart-row">
+                    <canvas id="columnChart"></canvas>
+                    <canvas id="rowChart"></canvas>
+                </div>
+                <div class="summary-stats">
+                    <div class="stat-card">
+                        <h4>Total Sprays</h4>
+                        <p id="total-sprays">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <h4>Most Active Column</h4>
+                        <p id="active-column">-</p>
+                    </div>
+                    <div class="stat-card">
+                        <h4>Threshold Status</h4>
+                        <p id="threshold-status">Normal</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="/static/js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!-- templates/monitor/dashboard.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vineyard Threat Monitor</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Vineyard Threat Monitor</h1>
+        
+        <div class="controls">
+            <select id="threat-selector">
+                <option value="fungal_diseases">Fungal Diseases</option>
+                <option value="pests">Pests</option>
+                <option value="mildew">Mildew</option>
+            </select>
+            <button id="refresh-btn">Refresh Data</button>
+        </div>
+        
+        <div class="grid-container">
+            <div id="vineyard-grid"></div>
+        </div>
+        
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-color" style="background-color: #4CAF50;"></div>
+                <span>Healthy (0.0)</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background-color:rgb(127, 127, 0);"></div>
+                <span>Moderate (0.5)</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background-color: #F44336;"></div>
+                <span>Severe (1.0)</span>
+            </div>
+        </div>
+
+        <!-- Statistics Section -->
+        <div class="stats-section">
+            <h2>Field Statistics</h2>
+            
+            <div class="stats-grid">
+                <!-- Overall Stats -->
+                <div class="stats-card">
+                    <h3>Overall Threat Levels</h3>
+                    <div class="stat-row">
+                        <span>Fungal Diseases:</span>
+                        <span id="avg-fungal">0.0</span>
+                    </div>
+                    <div class="stat-row">
+                        <span>Pests:</span>
+                        <span id="avg-pests">0.0</span>
+                    </div>
+                    <div class="stat-row">
+                        <span>Mildew:</span>
+                        <span id="avg-mildew">0.0</span>
+                    </div>
+                </div>
+                
+                <!-- Hotspot Detection -->
+                <div class="stats-card">
+                    <h3>Critical Areas</h3>
+                    <div class="hotspots-container">
+                        <div id="hotspots">
+                            <p>No critical threats detected</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Time-based Trends -->
+                <div class="stats-card" style="display: none !important;">
+                    <h3>Threat Trends</h3>
+                    <canvas id="threat-trend-chart"></canvas>
+                </div>
+
+                <div class="stats-card">
+                    <h3>Temporal Trends</h3>
+                    <div class="time-controls">
+                        <select id="time-range">
+                            <option value="24">Last 24 Hours</option>
+                            <option value="168">Last 7 Days</option>
+                            <option value="720">Last 30 Days</option>
+                        </select>
+                        <button id="update-time-stats">Update</button>
+                    </div>
+                    <canvas id="time-trend-chart"></canvas>
+                </div>
+            </div>
+            
+            <!-- Last Update Time -->
+            <div class="update-time">
+                Last updated: <span id="last-updated">Never</span>
+            </div>
+        </div>
+    </div>
+    
+    <script src="/static/js/script.js"></script>
+</body>
+</html>
